@@ -33,6 +33,15 @@ $ ./sandbox goal clerk send -a 123456789 -f 6RAEOFSNR4OPCWJ5VAABE2KKEMIDEIHASHUG
 
 ### Check with [dappflow](https://app.dappflow.org/)
 
+Switch to use testnode
+
+<img width="1257" alt="demo1" src="https://user-images.githubusercontent.com/1580956/221351172-00a98ab2-f7e7-4bba-8390-442c60ea3e1b.png">
+
+Then you should see the test results in the transaction tab
+
+<img width="1357" alt="demo2" src="https://user-images.githubusercontent.com/1580956/221351237-aa748760-5a5c-4556-ad0b-4858d7157b64.png">
+
+
 ## Setup
 
 ```
