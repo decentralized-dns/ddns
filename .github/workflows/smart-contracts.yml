@@ -12,6 +12,10 @@ env:
   python-version: 3.11.2
   poetry-version: 1.3.2
 
+defaults:
+  run:
+    working-directory: smart-contracts
+
 jobs:
   build:
     runs-on: ubuntu-latest
