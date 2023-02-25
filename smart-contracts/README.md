@@ -1,4 +1,7 @@
-# smart_contracts test
+# smart_contracts test <!-- omit in toc -->
+
+- [Setup](#setup)
+- [Local run](#local-run)
 
 ## Setup
 
