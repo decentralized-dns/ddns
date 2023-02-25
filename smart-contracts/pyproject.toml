@@ -22,10 +22,6 @@ flake8-tidy-imports = "^4.8.0"
 python-semantic-release = "^7.32.2"
 pip-audit = "^2.4.12"
 
-[tool.poetry.group.docs.dependencies]
-sphinx = "~5.0.2"
-sphinx-rtd-theme = "~1.0.0"
-
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
