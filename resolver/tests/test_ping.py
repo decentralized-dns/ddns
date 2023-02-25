@@ -1,4 +1,4 @@
-from api.main import app
+from ddnsapi.main import app
 from fastapi.testclient import TestClient
 
 client = TestClient(app)

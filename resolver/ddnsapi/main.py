@@ -1,5 +1,6 @@
+from ddnsapi.routes.ping import router
 from fastapi import FastAPI
-from api.routes.ping import router
+
 
 def get_application() -> FastAPI:
     app = FastAPI()
