@@ -64,6 +64,8 @@ Deployed app in txid 4WCAUPKCK2ZNUNV3GW4NPZZJ77BFVZ25775CFI5W5W6YYZRKTDVQ
 ping, ddnsbot
 ```
 
+<img width="1398" alt="demo3" src="https://user-images.githubusercontent.com/1580956/221360635-fc552e7a-e040-41d4-bdce-3f4375050d35.png">
+
 ## Setup
 
 ```sh
