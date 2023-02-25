@@ -3,6 +3,7 @@
 - [Setup sandbox](#setup-sandbox)
   - [demo](#demo)
   - [Check with dappflow](#check-with-dappflow)
+  - [Demo (deploy dapp)](#demo-deploy-dapp)
 - [Setup](#setup)
 - [Local run](#local-run)
 
@@ -50,6 +51,19 @@ Then you should see the test results in the transaction tab
 <img width="1357" alt="demo2" src="https://user-images.githubusercontent.com/1580956/221351237-aa748760-5a5c-4556-ad0b-4858d7157b64.png">
 
 
+### Demo (deploy dapp)
+
+Deploying calculator example app
+
+```sh
+$ python hello.py
+Deployed app in txid SECWWIIFW6REE3RROAPPHVIIS7XNDOWQIUX6EM2WOJDPEDF5EZQQ
+        App ID: 108
+        Address: 7WP6IWQOXYYADHQBRJT3FEQTVQNIKBGLUQ75CJ36JNRLGINZ22WGGVKYVE
+
+Hello, Beaker
+```
+
 ## Setup
 
 ```sh
@@ -65,4 +79,5 @@ $ asdf global python 3.10.10
 ```sh
 $ poetry install
 $ poetry shell
+$ poetry run pytest
 ```
