@@ -11,6 +11,12 @@ python = "^3.11"
 fastapi = "^0.92.0"
 uvicorn = "^0.20.0"
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.1"
+flake8 = "^6.0.0"
+flake8-tidy-imports = "^4.8.0"
+black = "^23.1.0"
+pytest-cov = "^4.0.0"
 
 [build-system]
 requires = ["poetry-core"]
