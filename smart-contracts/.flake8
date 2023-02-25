@@ -1,0 +1,10 @@
+[flake8]
+max-complexity = 22
+max-line-length = 110
+ignore = E203,E501,W503
+exclude =
+    __pycache__
+    .venv
+    examples
+# from flake8-tidy-imports
+ban-relative-imports = true
