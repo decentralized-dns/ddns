@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-from routes import ping
+from api.routes.ping import router
 
-app = FastAPI()
-app.include_router(ping.router)
+def get_application() -> FastAPI:
+    app = FastAPI()
+    app.include_router(router)
+    return app
 
-@app.get("/")
-async def root():
-    return {"message": "Hello DDNS!"}
+app = get_application()

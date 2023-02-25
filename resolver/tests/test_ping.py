@@ -4,7 +4,7 @@ from fastapi.testclient import TestClient
 client = TestClient(app)
 
 
-def test_read_main():
-    response = client.get("/")
+def test_ping():
+    response = client.get("/ping")
     assert response.status_code == 200
-    assert response.json() == {"message": "Hello DDNS!"}
+    assert response.json() == {"ping": "pong!"}
