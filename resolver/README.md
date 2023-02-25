@@ -6,10 +6,10 @@ API is using fastapi and uvicorn.
 
 ```sh
 $ poetry install
-$ poetry run uvicorn --app-dir api main:app --reload
+$ make run
 ```
 
 ```sh
-$ curl http://127.0.0.1:8000
-{"message":"Hello DDNS"}
+$ curl http://127.0.0.1:8000/ping
+{"ping":"pong!"}
 ```
