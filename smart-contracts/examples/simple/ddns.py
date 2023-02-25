@@ -1,5 +1,7 @@
-from pyteal import *
-from beaker import *
+from beaker import Application, client, sandbox
+from beaker.decorators import external
+from pyteal import Bytes, Concat, abi
+
 
 # Create a class, subclassing Application from beaker
 class DDNS(Application):

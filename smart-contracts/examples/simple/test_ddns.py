@@ -23,9 +23,7 @@ def test_main():
     ddns_main()
 
 
-@pytest.mark.parametrize(
-    "app_class", [Calculator, CounterApp, DDNS, ExternalExample]
-)
+@pytest.mark.parametrize("app_class", [Calculator, CounterApp, DDNS, ExternalExample])
 def test_output_stability(app_class: type[Application]):
     app = app_class()
     check_application_artifacts_output_stability(app)

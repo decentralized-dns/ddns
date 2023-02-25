@@ -1,5 +1,6 @@
-from pyteal import *
-from beaker import *
+from beaker import Application, client, sandbox
+from beaker.decorators import create
+from pyteal import abi
 
 
 class ExternalExample(Application):

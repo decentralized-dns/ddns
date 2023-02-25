@@ -1629,6 +1629,22 @@ files = [
 diagrams = ["jinja2", "railroad-diagrams"]
 
 [[package]]
+name = "pyproject-flake8"
+version = "6.0.0.post1"
+description = "pyproject-flake8 (`pflake8`), a monkey patching wrapper to connect flake8 with pyproject.toml configuration"
+category = "dev"
+optional = false
+python-versions = ">=3.8.1"
+files = [
+    {file = "pyproject-flake8-6.0.0.post1.tar.gz", hash = "sha256:d43421caca0ef8a672874405fe63c722b0333e3c22c41648c6df60f21bab2b6b"},
+    {file = "pyproject_flake8-6.0.0.post1-py3-none-any.whl", hash = "sha256:bdc7ca9b967b9724983903489b8943b72c668178fb69f03e8774ec74f6a13782"},
+]
+
+[package.dependencies]
+flake8 = "6.0.0"
+tomli = {version = "*", markers = "python_version < \"3.11\""}
+
+[[package]]
 name = "pyteal"
 version = "0.22.0"
 description = "Algorand Smart Contracts in Python"
@@ -2273,4 +2289,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "04d79f87e28f3cfd232a805ee656e876984ba5991cfa86c5e7f63e6b299d6c3d"
+content-hash = "7f78e94ce52558d41890660d5499129270786bfc47f11c319f6945a30d80799f"
