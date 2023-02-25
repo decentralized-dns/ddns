@@ -1,13 +1,13 @@
 import pytest
 
 from beaker import Application
-from calculator import Calculator
-from calculator import demo as calc_demo
-from counter import CounterApp
-from counter import demo as count_demo
-from hello import HelloBeaker
-from hello import demo as hello_demo
-from decorators import ExternalExample
+from examples.simple.calculator import Calculator
+from examples.simple.calculator import demo as calc_demo
+from examples.simple.counter import CounterApp
+from examples.simple.counter import demo as count_demo
+from examples.simple.hello import HelloBeaker
+from examples.simple.hello import demo as hello_demo
+from examples.simple.decorators import ExternalExample
 from tests.conftest import check_application_artifacts_output_stability
 
 
