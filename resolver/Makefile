@@ -5,4 +5,4 @@ test:
 	poetry run pytest
 
 deploy:
-	flyctl launch
+	flyctl deploy
