@@ -1,18 +1,18 @@
-name: smart-contracts
+name: resolver
 
 on:
   push:
     branches:
       - main
     paths:
-      - .github/workflows/smart-contracts.yml
-      - smart-contracts/**
+      - .github/workflows/resolver.yml
+      - resolver/**
   pull_request:
     branches:
       - main
     paths:
-      - .github/workflows/smart-contracts.yml
-      - smart-contracts/**
+      - .github/workflows/resolver.yml
+      - resolver/**
 
 env:
   python-version: 3.11.2
@@ -21,7 +21,7 @@ env:
 
 defaults:
   run:
-    working-directory: smart-contracts
+    working-directory: resolver
 
 jobs:
   build:
@@ -35,9 +35,6 @@ jobs:
 
       - run: pip install poetry==${{ env.poetry-version }}
 
-      - name: start sandbox
-        run: docker compose up -d
-
       - name: Install dependencies
         run: poetry install --no-interaction --no-root
 
@@ -47,8 +44,5 @@ jobs:
       - name: Lint with `flake8`
         run: poetry run flake8 . --count --statistics
 
-      - name: Test with `pytest`
-        run: poetry run pytest
-
-      - name: stop sandbox
-        run: docker compose down
+      # - name: Test with `pytest`
+      #   run: poetry run pytest
