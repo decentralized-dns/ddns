@@ -8,7 +8,7 @@
 
 ## Setup sandbox
 
-```
+```sh
 git clone https://github.com/algorand/sandbox.git
 cd sandbox
 # assuming docker and docker-compose have been setup
@@ -17,16 +17,24 @@ cd sandbox
 ./sandbox goal account list # sanity check
 ```
 
+```sh
+$ docker ps
+CONTAINER ID   IMAGE                COMMAND                  CREATED       STATUS             PORTS                                                                                                      NAMES
+86ecc16dc0ce   sandbox-indexer      "/tmp/start.sh"          10 days ago   Up About an hour   0.0.0.0:8980->8980/tcp, :::8980->8980/tcp                                                                  algorand-sandbox-indexer
+a4439ecdc815   postgres:13-alpine   "docker-entrypoint.s…"   10 days ago   Up About an hour   0.0.0.0:5433->5432/tcp, :::5433->5432/tcp                                                                  algorand-sandbox-postgres
+3c10e7e5e85e   sandbox-algod        "/opt/start_algod.sh"    10 days ago   Up About an hour   0.0.0.0:4001-4002->4001-4002/tcp, :::4001-4002->4001-4002/tcp, 0.0.0.0:9392->9392/tcp, :::9392->9392/tcp   algorand-sandbox-algod
+```
+
 ### demo
 
-```
+```sh
 $ ./sandbox goal account list
 [online]	YBHNJCX6LJNS73YKDEXTZVS24WDF53DHJ5N2DKZEK4LGWJG6KMSV7QFJUU	YBHNJCX6LJNS73YKDEXTZVS24WDF53DHJ5N2DKZEK4LGWJG6KMSV7QFJUU	4000000000000000 microAlgos
 [online]	6RAEOFSNR4OPCWJ5VAABE2KKEMIDEIHASHUGCFLZU7YIGD5LHUBQDVKY3Q	6RAEOFSNR4OPCWJ5VAABE2KKEMIDEIHASHUGCFLZU7YIGD5LHUBQDVKY3Q	3999999876542211 microAlgos
 [online]	62RZZ2EWRSFLAVLSSG55NYMSMOCMDWGJQFKNZDPVVPSXOF6LZHDUOURPWU	62RZZ2EWRSFLAVLSSG55NYMSMOCMDWGJQFKNZDPVVPSXOF6LZHDUOURPWU	2000000123456789 microAlgos
 ```
 
-```
+```sh
 # test transaction
 $ ./sandbox goal clerk send -a 123456789 -f 6RAEOFSNR4OPCWJ5VAABE2KKEMIDEIHASHUGCFLZU7YIGD5LHUBQDVKY3Q -t 62RZZ2EWRSFLAVLSSG55NYMSMOCMDWGJQFKNZDPVVPSXOF6LZHDUOURPWU
 ```
@@ -44,17 +52,17 @@ Then you should see the test results in the transaction tab
 
 ## Setup
 
-```
-brew install asdf poetry
+```sh
+$ brew install asdf poetry
 
-asdf plugin-add python
-asdf install python 3.10.10
-asdf global python 3.10.10
+$ asdf plugin-add python
+$ asdf install python 3.10.10
+$ asdf global python 3.10.10
 ```
 
 ## Local run
 
-```
-poetry install
-poetry shell
+```sh
+$ poetry install
+$ poetry shell
 ```
