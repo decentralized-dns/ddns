@@ -4,7 +4,6 @@
   - [demo](#demo)
   - [Check with dappflow](#check-with-dappflow)
   - [Demo (deploy dapp)](#demo-deploy-dapp)
-- [Setup](#setup)
 - [Local run](#local-run)
 
 ## Setup sandbox
@@ -65,16 +64,6 @@ ping, ddnsbot
 ```
 
 <img width="1398" alt="demo3" src="https://user-images.githubusercontent.com/1580956/221360635-fc552e7a-e040-41d4-bdce-3f4375050d35.png">
-
-## Setup
-
-```sh
-$ brew install asdf poetry
-
-$ asdf plugin-add python
-$ asdf install python 3.11.2
-$ asdf global python 3.11.2
-```
 
 ## Local run
 
