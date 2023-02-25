@@ -1,5 +1,5 @@
 run:
-	poetry run uvicorn --app-dir ddnsapi main:app --reload
+	poetry run uvicorn ddnsapi.main:app --reload --date-header
 
 test:
 	poetry run pytest
