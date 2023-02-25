@@ -56,12 +56,12 @@ Then you should see the test results in the transaction tab
 Deploying calculator example app
 
 ```sh
-$ python hello.py
-Deployed app in txid SECWWIIFW6REE3RROAPPHVIIS7XNDOWQIUX6EM2WOJDPEDF5EZQQ
-        App ID: 108
-        Address: 7WP6IWQOXYYADHQBRJT3FEQTVQNIKBGLUQ75CJ36JNRLGINZ22WGGVKYVE
+$ python ddns.py
+Deployed app in txid 4WCAUPKCK2ZNUNV3GW4NPZZJ77BFVZ25775CFI5W5W6YYZRKTDVQ
+        App ID: 112
+        Address: SQIICJ54DZMTRVK27GEZJJVTZEWFPUWPVWZHG3B5WQIFSZIMU72N4XBKIE
 
-Hello, Beaker
+ping, ddnsbot
 ```
 
 ## Setup

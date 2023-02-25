@@ -1,8 +1,8 @@
 {
-    "name": "HelloBeaker",
+    "name": "DDNS",
     "methods": [
         {
-            "name": "hello",
+            "name": "ping",
             "args": [
                 {
                     "type": "string",

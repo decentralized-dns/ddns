@@ -5,7 +5,7 @@ intc_0 // 0
 ==
 bnz main_l4
 txna ApplicationArgs 0
-pushbytes 0x02bece11 // "hello(string)string"
+pushbytes 0x1cd2d7e6 // "ping(string)string"
 ==
 bnz main_l3
 err
@@ -19,7 +19,7 @@ intc_0 // 0
 &&
 assert
 txna ApplicationArgs 1
-callsub hello_1
+callsub ping_1
 store 0
 pushbytes 0x151f7c75 // 0x151f7c75
 load 0
@@ -48,11 +48,11 @@ proto 0 0
 intc_1 // 1
 return
 
-// hello
-hello_1:
+// ping
+ping_1:
 proto 1 1
 pushbytes 0x // ""
-pushbytes 0x48656c6c6f2c20 // "Hello, "
+pushbytes 0x70696e672c20 // "ping, "
 frame_dig -1
 extract 2 0
 concat
