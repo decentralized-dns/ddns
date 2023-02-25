@@ -1,0 +1,61 @@
+﻿{% extends 'base.html' %}
+{% block main_part %}
+
+    <section class="content-wrapper">
+        {#            <div class="container">#}
+        {#                <div class="clear team-wrap">#}
+        <article class="col-md-3 text-left">
+            <h2>Register your domain</h2>
+            <form class='manage-form' method="GET" action="/register">
+                <label for="register_address">Address:</label>
+                <input type="text" id="register_address" name="register_address"><br>
+                <label for="register_name">Name:</label>
+                <input type="text" id="register_name" name="register_name"><br>
+                <label for="register_duration">Duration:</label>
+                <input type="number" id="register_duration" name="register_duration"><br>
+                <input class="action-button" type="submit" value="Register">
+            </form>
+            {% if reg_status %}
+                <p>{{ reg_status }}</p>
+                {% else %}
+                <p>''</p>
+            {% endif %}
+        </article>
+
+        <article class="col-md-3 text-left">
+            <h2>Renew Your Domain</h2>
+            <form class='manage-form' method="POST" action="/renew">
+                <label for="renew_address">Address:</label>
+                <input type="text" id="renew_address" name="renew_address"><br>
+                <label for="renew_name">Name:</label>
+                <input type="text" id="renew_name" name="renew_name"><br>
+
+                <label for="renew_duration">Duration:</label>
+                <input type="number" id="renew_duration" name="renew_duration"><br>
+                <input class="action-button" type="submit" value="Renew">
+                {% if renew_status %}
+                    <p>{{ renew_status }}</p>
+                {% endif %}
+            </form>
+        </article>
+
+        <article class="col-md-3 text-left">
+            <h2>Update Your Domain</h2>
+            <form class='manage-form' method="POST" action="/update">
+            <label for="address">Address:</label>
+                <input type="text" id="update_address" name="update_address"><br>
+                <input class="action-button" type="submit" value="Update">
+                <label for="update_old_name">Old_Name:</label>
+                <input type="text" id="update_old_name" name="update_old_name"><br>
+                <label for="update_new_name">New_Name:</label>
+                <input type="text" id="update_new_name" name="update_new_name"><br>
+                {% if update_status %}
+                    <p>{{ update_status }}</p>
+                {% endif %}
+
+            </form>
+        </article>
+        {#                </div>#}
+        {#            </div>#}
+    </section>
+{% endblock %}

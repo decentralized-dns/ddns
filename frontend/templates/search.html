@@ -1,0 +1,66 @@
+﻿{% extends 'base.html' %}
+{% block main_part %}
+
+
+    <section class="content-wrapper">
+        <div class="container">
+            <article class="col-md-5 text-left">
+                <h1>Domain Search</h1>
+                <form class="search-form" method='GET' action="/search">
+                    <input type="text" id="domain_name" name="domain_name" placeholder="Search Your Domain...">
+                    <button class="search-button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
+                {% if domain_name %}
+                    <h3>Search results for: {{ domain_name }}</h3>
+                    {% if domain_info %}
+                        <p>- IP: {{ domain_info }}</p>
+                    {% else %}
+                        <p>- IP: No domain information found.</p>
+                    {% endif %}
+                    {% if text_record %}
+                        <p> - Text Record: {{ text_record }}</p>
+                    {% else %}
+                        <p>- Text Record: No text record found.</p>
+                    {% endif %}
+                    {% if domain_owner %}
+                        <p>- Owner: {{ domain_owner }}</p>
+                    {% else %}
+                        <p>- Owner: No domain owner found.</p>
+                    {% endif %}
+                {% else %}
+                    <h3>Search results for: </h3>
+                {% endif %}
+
+                <a href="{{ url_for('display_page', page='manage') }}" class="action-button">Register Now</a>
+            </article>
+
+
+            <article class="col-md-5 text-left">
+                <h1>Address Search</h1>
+                <form class="search-form" method='GET' action="/addressinfo">
+                    <input type="text" id="account_address" name="account_address" placeholder="Enter Account Address">
+                    <button class="search-button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
+                {% if account_address %}
+                    <h3>Searched Account address: {{ account_address }}</h3>
+                    {% if default_domain %}
+                        <p>- Default domain: {{ default_domain }}</p>
+                    {% else %}
+                        <p>- Default domain: </p>
+                    {% endif %}
+                    {% if asso_domains %}
+                        <p>- Associated domains:</p>
+                        {% for domain in asso_domains %}
+                            <p>{{ domain }}</p>
+                        {% endfor %}
+                    {% else %}
+                        <p>- Associated domains: </p>
+                    {% endif %}
+                {% else %}
+                    <h3>Searched Account address:</h3>
+                {% endif %}
+                <a href="{{ url_for('display_page', page='manage') }}" class="action-button">Manage Your Domain</a>
+            </article>
+        </div>
+    </section>
+{% endblock %}
