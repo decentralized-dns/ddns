@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{include = "smart_contracts"}]
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.10"
 beaker-pyteal = "^0.5.4"
 py-algorand-sdk = "^2.0.0"
 
