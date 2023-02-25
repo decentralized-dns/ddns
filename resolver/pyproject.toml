@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "resolver"
+version = "0.1.0"
+description = ""
+authors = ["Rui Chen <rui@chenrui.dev>"]
+readme = "README.md"
+packages = [{include = "api"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.92.0"
+uvicorn = "^0.20.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
