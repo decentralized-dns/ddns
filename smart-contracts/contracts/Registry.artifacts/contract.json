@@ -2,6 +2,14 @@
     "name": "Registry",
     "methods": [
         {
+            "name": "health",
+            "args": [],
+            "returns": {
+                "type": "string"
+            },
+            "desc": "Returns the contract health"
+        },
+        {
             "name": "register",
             "args": [
                 {

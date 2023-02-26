@@ -36,12 +36,18 @@ class Registry(Application):
 
     @create
     def create(self):
+        """Deploys the contract and intialize app states"""
         return self.initialize_application_state()
 
     @opt_in
     def opt_in(self):
         # Defaults to sender
         return self.initialize_account_state()
+
+    @external
+    def health(self, *, output: abi.String):
+        """Returns the contract health"""
+        return output.set(Bytes("Registry is up and running!"))
 
     @external
     def register(
