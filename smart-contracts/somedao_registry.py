@@ -1,18 +1,11 @@
-from pyteal import *
-from beaker import *
-from typing import Final
-
 # from . import constants
 from datetime import datetime
-from algosdk.encoding import decode_address
-from typing import Literal
-import base64
-from nacl.signing import SigningKey
-from algosdk.atomic_transaction_composer import (
-    AtomicTransactionComposer,
-    TransactionWithSigner,
-)
-from algosdk import transaction
+from typing import Final
+
+from beaker import (AccountStateValue, Application, abi, client, create,
+                    external, opt_in, sandbox)
+from pyteal import Bytes, Int, Seq, TealType
+
 
 # Create a class, subclassing Application from beaker
 class dot_somedao_registry(Application):
@@ -95,8 +88,8 @@ app_id_sc, app_addr_sc, txid_sc = app_client.create()
 print(
     f"""Deployed app in
     txid: {txid_sc}
-    App ID: {app_id_sc} 
-    Address: {app_addr_sc} 
+    App ID: {app_id_sc}
+    Address: {app_addr_sc}
     """
 )
 
