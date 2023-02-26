@@ -1,0 +1,54 @@
+{
+    "name": "Registry",
+    "methods": [
+        {
+            "name": "register",
+            "args": [
+                {
+                    "type": "string",
+                    "name": "name"
+                },
+                {
+                    "type": "string",
+                    "name": "owner"
+                },
+                {
+                    "type": "uint64",
+                    "name": "valid_year"
+                },
+                {
+                    "type": "uint64",
+                    "name": "current_time"
+                }
+            ],
+            "returns": {
+                "type": "void"
+            }
+        },
+        {
+            "name": "renew",
+            "args": [
+                {
+                    "type": "uint64",
+                    "name": "renew_year"
+                }
+            ],
+            "returns": {
+                "type": "void"
+            }
+        },
+        {
+            "name": "update",
+            "args": [
+                {
+                    "type": "string",
+                    "name": "social_account"
+                }
+            ],
+            "returns": {
+                "type": "void"
+            }
+        }
+    ],
+    "networks": {}
+}
