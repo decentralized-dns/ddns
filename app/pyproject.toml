@@ -11,6 +11,8 @@ python = "^3.11"
 fastapi = "^0.92.0"
 uvicorn = "^0.20.0"
 httpx = {version = ">=0.18.2, <2", optional = true}
+jinja2 = "^3.1.2"
+python-multipart = "^0.0.5"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.2.1"
