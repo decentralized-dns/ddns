@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block main_part %}
+  <section class="content-wrapper">
+    <div class="container">
+      <article class="col-12 text-left">
+          <h2 class="section-title">Connect To Your Wallet</h2>
+          <h3 class="section-subtitle">Choose your wallet provider:</h3>
+
+          <div class="wallet-display">
+            <div class="wallet-item">
+              <a href="#">
+                <img src="{{ url_for('static', path='img/wallets/metamask.png') }}" alt="Metamask"
+                     class="img-responsive">
+                <h4 class="wallet-name">Metamask</h4>
+              </a>
+            </div>
+
+            <div class="wallet-item">
+              <a href="#">
+                <img src="{{ url_for('static', path='img/wallets/trust.png') }}" alt="Trust Wallet"
+                     class="img-responsive">
+                <h4 class="wallet-name">Trust Wallet</h4>
+              </a>
+            </div>
+
+            <div class="wallet-item">
+              <a href="#">
+                <img src="{{ url_for('static', path='img/wallets/walletconnect.png') }}" alt="WalletConnect"
+                     class="img-responsive">
+                <h4 class="wallet-name">WalletConnect</h4>
+              </a>
+            </div>
+          </div>
+
+
+      <form class="search-form" method='GET' action="/addressinfo">
+        <a href="{{ url_for('display_page', page='manage') }}" class="btn btn-primary">Manage Your Domain</a>
+      </form>
+
+
+
+    </div>
+  </section>
+{% endblock %}
