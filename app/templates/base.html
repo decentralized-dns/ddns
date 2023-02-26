@@ -1,76 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>Home</title>
-        <meta name="keywords" content="" />
-        <meta name="description" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <link rel="stylesheet" href="{{ url_for('static', path='css/bootstrap.css') }}" type="text/css" />
-        <link rel="stylesheet" href="{{ url_for('static', path='css/animate.css') }}" type="text/css" />
-        <link rel="stylesheet" href="{{ url_for('static', path='css/font-awesome.css') }}" type="text/css" />
-        <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}" type="text/css" />
-<!--      <link rel="shortcut icon" type="image/png" href="{{ url_for('static', path='img/favicon.png') }}" />-->
-        <script src="{{ url_for('static', path='js/html5.js') }}"></script>
-    </head>
 
-    <body>
-        <header id="header" class="clear-2">
-            <a href="{{ url_for('display_page', page='index') }}" class="logo">DDNS</a>
-            <nav class="navbar">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav menu">
-                        <li><a href="{{ url_for('display_page', page='index') }}">Home</a></li>
-                        <!--<li><a href="{{ url_for('display_page', page='about_us') }}">About Us</a></li>-->
-                        <li><a href="{{ url_for('display_page', page='search') }}">Domain Search</a></li>
-                        <li><a href="{{ url_for('display_page', page='connect_wallet') }}">Connect Wallet</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
+<head>
+  <meta charset="utf-8" />
+  <title>Home</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="{{ url_for('static', path='css/bootstrap.css') }}" type="text/css" />
+  <link rel="stylesheet" href="{{ url_for('static', path='css/animate.css') }}" type="text/css" />
+  <link rel="stylesheet" href="{{ url_for('static', path='css/font-awesome.css') }}" type="text/css" />
+  <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}" type="text/css" />
+  <!--    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', path='img/favicon.png') }}" />-->
+  <script src="{{ url_for('static', path='js/html5.js') }}"></script>
+</head>
 
-        {% block main_part %}{% endblock %}
+<body>
+  <header id="header" class="clear-2">
+    <a href="{{ url_for('display_page', page='index') }}" class="logo">DDNS</a>
+    <nav class="navbar">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav menu">
+          <li>
+            <a href="{{ url_for('display_page', page='index') }}">Home</a>
+          </li>
+          <!--<li><a href="{{ url_for('display_page', page='about_us') }}">About Us</a></li>-->
+          <li>
+            <a href="{{ url_for('display_page', page='search') }}">Domain Search</a>
+          </li>
+          <li>
+            <a href="{{ url_for('display_page', page='connect_wallet') }}">Connect Wallet</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-        <footer id="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <a href="{{ url_for('display_page', page='index') }}" class="logo">DDNS</a>
-                        <p>Empower your decentralized world with DDNS. <br>
-                            Supports multiple chains and built on Algorand.</p>
-                        <p>&copy; DDNS Team.</p>
-                    </div>
-                    <div class="col-md-3">
-                        <h6>Links</h6>
-                        <ul class="footer-menu">
-                            <!--<p><a href="{{ url_for('display_page', page='about_us') }}">About Us</a></p>-->
-                            <p><a href="{{ url_for('display_page', page='search') }}">Search Domain</a></p>
-                          <p><a href="{{ url_for('display_page', page='connect_wallet') }}">Connect Wallet</a></p>
-                        </ul>
-                    </div>
+  {% block main_part %}{% endblock %}
 
-					          <div class="col-md-4">
-                      <h6>Contact</h6>
-                        <p>Email: ddns@gmail.com</p>
-                        <p>Phone: +1 (111)111-1111</p>
-					          </div>
-                </div>
-			    </div>
-		</footer>
+  <footer id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <a href="{{ url_for('display_page', page='index') }}" class="logo">DDNS</a>
+          <p>
+            Empower your decentralized world with DDNS. <br />
+            Supports multiple chains and built on Algorand.
+          </p>
+          <p>&copy; DDNS Team.</p>
+        </div>
+        <div class="col-md-3">
+          <h6>Links</h6>
+          <ul class="footer-menu">
+            <!--<p><a href="{{ url_for('display_page', page='about_us') }}">About Us</a></p>-->
+            <p>
+              <a href="{{ url_for('display_page', page='search') }}">Search Domain</a>
+            </p>
+            <p>
+              <a href="{{ url_for('display_page', page='connect_wallet') }}">Connect Wallet</a>
+            </p>
+          </ul>
+        </div>
 
-    <script src="{{ url_for('static', path='js/lib/jquery.js') }}"></script>
-    <script src="{{ url_for('static', path='js/lib/bootstrap.min.js') }}"></script>
-    <script src="{{ url_for('static', path='js/lib/lightbox.min.js') }}"></script>
-    <script src="{{ url_for('static', path='js/lib/shuffle.js') }}"></script>
-    <script src="{{ url_for('static', path='js/lib/swiper.min.js') }}"></script>
-    <script src="{{ url_for('static', path='js/lib/waypoints.min.js') }}"></script>
-    <script src="{{ url_for('static', path='js/script.js') }}"></script>
+        <div class="col-md-4">
+          <h6>Contact</h6>
+          <p>Email: ddns@gmail.com</p>
+          <p>Phone: +1 (111)111-1111</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-	</body>
+  <script src="{{ url_for('static', path='js/lib/jquery.js') }}"></script>
+  <script src="{{ url_for('static', path='js/lib/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', path='js/lib/lightbox.min.js') }}"></script>
+  <script src="{{ url_for('static', path='js/lib/shuffle.js') }}"></script>
+  <script src="{{ url_for('static', path='js/lib/swiper.min.js') }}"></script>
+  <script src="{{ url_for('static', path='js/lib/waypoints.min.js') }}"></script>
+  <script src="{{ url_for('static', path='js/script.js') }}"></script>
+</body>
+
 </html>

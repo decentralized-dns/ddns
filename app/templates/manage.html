@@ -1,124 +1,121 @@
-﻿{% extends 'base.html' %}
-{% block main_part %}
+﻿{% extends 'base.html' %} {% block main_part %}
 
-  <section class="content-wrapper">
-    <div class="container">
+<section class="content-wrapper">
+  <div class="container">
     <article class="col-12 text-left">
-       <table class="table">
-          <thead>
-            <tr>
-              <th>Wallet:{{ domain_info }}</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-                  <tr>
-                <th>Account Info</th>
-                <th></th>
-              </tr>
-              <tr>
-                <td>Default Address</td>
-                <td>{{ default_address }}</td>
-              </tr>
-              <tr>
-                <td>Associate Domains</td>
-                <td>{{ asso_domains }}</td>
-              </tr>
-          </tbody>
-       </table>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Wallet:{{ domain_info }}</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Account Info</th>
+            <th></th>
+          </tr>
+          <tr>
+            <td>Default Address</td>
+            <td>{{ default_address }}</td>
+          </tr>
+          <tr>
+            <td>Associate Domains</td>
+            <td>{{ asso_domains }}</td>
+          </tr>
+        </tbody>
+      </table>
     </article>
-<article class="col-12 text-left">
-  <form class='manage-form' id="manage-form" method="GET">
-    <label for="register_select">Select an option:</label>
-    <select id="register_select" name="register_select">
-      <option value="register">Register</option>
-      <option value="extend">Extend</option>
-      <option value="update">Update</option>
-    </select>
-    <br>
-    <div id="register_fields" style="display: none;">
-      <label for="register_name">Name:</label>
-      <input type="text" id="register_name" name="register_name"><br>
-      <label for="register_duration">Duration:</label>
-      <input type="number" id="register_duration" name="register_duration"><br>
-    </div>
-    <div id="extend_fields" style="display: none;">
-      <label for="extend_name">Name:</label>
-      <input type="text" id="extend_name" name="extend_name"><br>
-      <label for="extend_duration">Duration:</label>
-      <input type="number" id="extend_duration" name="extend_duration"><br>
-    </div>
-    <div id="update_fields" style="display: none;">
-      <label for="old_name">Old Name:</label>
-      <input type="text" id="old_name" name="old_name"><br>
-      <label for="new_name">New Name:</label>
-      <input type="text" id="new_name" name="new_name"><br>
-      <label for="update_duration">Duration:</label>
-      <input type="number" id="update_duration" name="update_duration"><br>
-    </div>
-    <input class="manage-button" type="submit" value="Submit">
-  </form>
-  <div class="col-md-5" id="result"></div>
-</article>
+    <article class="col-12 text-left">
+      <form class="manage-form" id="manage-form" method="GET">
+        <label for="register_select">Select an option:</label>
+        <select id="register_select" name="register_select">
+          <option value="register">Register</option>
+          <option value="extend">Extend</option>
+          <option value="update">Update</option>
+        </select>
+        <br />
+        <div id="register_fields" style="display: none">
+          <label for="register_name">Name:</label>
+          <input type="text" id="register_name" name="register_name" /><br />
+          <label for="register_duration">Duration:</label>
+          <input type="number" id="register_duration" name="register_duration" /><br />
+        </div>
+        <div id="extend_fields" style="display: none">
+          <label for="extend_name">Name:</label>
+          <input type="text" id="extend_name" name="extend_name" /><br />
+          <label for="extend_duration">Duration:</label>
+          <input type="number" id="extend_duration" name="extend_duration" /><br />
+        </div>
+        <div id="update_fields" style="display: none">
+          <label for="old_name">Old Name:</label>
+          <input type="text" id="old_name" name="old_name" /><br />
+          <label for="new_name">New Name:</label>
+          <input type="text" id="new_name" name="new_name" /><br />
+          <label for="update_duration">Duration:</label>
+          <input type="number" id="update_duration" name="update_duration" /><br />
+        </div>
+        <input class="manage-button" type="submit" value="Submit" />
+      </form>
+      <div class="col-md-5" id="result"></div>
+    </article>
 
-<script>
-const form = document.getElementById("manage-form");
-const select = document.getElementById("register_select");
-const registerFields = document.getElementById("register_fields");
-const extendFields = document.getElementById("extend_fields");
-const updateFields = document.getElementById("update_fields");
-const result = document.getElementById("result");
+    <script>
+      const form = document.getElementById("manage-form");
+      const select = document.getElementById("register_select");
+      const registerFields = document.getElementById("register_fields");
+      const extendFields = document.getElementById("extend_fields");
+      const updateFields = document.getElementById("update_fields");
+      const result = document.getElementById("result");
 
-select.addEventListener("change", (event) => {
-  switch (event.target.value) {
-    case "register":
-      registerFields.style.display = "block";
-      extendFields.style.display = "none";
-      updateFields.style.display = "none";
-      break;
-    case "extend":
-      registerFields.style.display = "none";
-      extendFields.style.display = "block";
-      updateFields.style.display = "none";
-      break;
-    case "update":
-      registerFields.style.display = "none";
-      extendFields.style.display = "none";
-      updateFields.style.display = "block";
-      break;
-  }
-});
+      select.addEventListener("change", (event) => {
+        switch (event.target.value) {
+          case "register":
+            registerFields.style.display = "block";
+            extendFields.style.display = "none";
+            updateFields.style.display = "none";
+            break;
+          case "extend":
+            registerFields.style.display = "none";
+            extendFields.style.display = "block";
+            updateFields.style.display = "none";
+            break;
+          case "update":
+            registerFields.style.display = "none";
+            extendFields.style.display = "none";
+            updateFields.style.display = "block";
+            break;
+        }
+      });
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
 
-  let url;
-  let formData = new FormData(form);
+        let url;
+        let formData = new FormData(form);
 
-  switch (select.value) {
-    case "register":
-      url = "/register";
-      break;
-    case "extend":
-      url = "/extend";
-      break;
-    case "update":
-      url = "/update";
-      break;
-  }
+        switch (select.value) {
+          case "register":
+            url = "/register";
+            break;
+          case "extend":
+            url = "/extend";
+            break;
+          case "update":
+            url = "/update";
+            break;
+        }
 
-  fetch(url, {
-    method: "GET",
-    body: formData,
-  })
-    .then((response) => response.text())
-    .then((text) => {
-      result.innerHTML = text;
-    });
-});
-</script>
-
-
-    </div>
-  </section>
+        fetch(url, {
+          method: "GET",
+          body: formData,
+        })
+          .then((response) => response.text())
+          .then((text) => {
+            result.innerHTML = text;
+          });
+      });
+    </script>
+  </div>
+</section>
 {% endblock %}

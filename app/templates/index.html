@@ -1,42 +1,54 @@
-﻿{% extends 'base.html' %}
+﻿{% extends 'base.html' %} {% block main_part %}
 
-{% block main_part %}
+<div class="header-search">
+  <h1>A revolutionary Web3 naming service</h1>
+  <form class="search-form-home" method="GET" action="/search">
+    <input class="search-input" type="text" name="domain_name" placeholder="Search..." />
+    <button class="search-button" type="submit">
+      <i class="fa fa-search" aria-hidden="true"></i>
+    </button>
+  </form>
+</div>
 
-    <div class="header-search">
-      <h1>A revolutionary Web3 naming service</h1>
-      <form class="search-form-home" method='GET' action="/search">
-        <input class="search-input" type="text" name="domain_name" placeholder="Search...">
-        <button class="search-button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-      </form>
-    </div>
-
-    <section id="services" class="scroll-animation" data-animation="fadeIn" data-animation-delay="0s">
-        <div class="container">
-            <div class="row">
-        <br><br><br>
-                <div class="col-md-4 ">
-                    <div class="icon-services">
-                        <i class="fa fa-wifi" aria-hidden="true"></i>
-                    </div>
-                    <h4>Versatility</h4>
-                    <p>Supports multiple blockchains allows users to access a wide range of decentralized services and applications, regardless of the underlying blockchain technology.</p>
-                </div>
-                <div class="col-md-4">
-                    <div class="icon-services">
-                        <i class="fa fa-code" aria-hidden="true"></i>
-                    </div>
-                    <h4>Convenience</h4>
-                    <p>Users only need to remember a single domain name or username to access a variety of blockchain-based services across different networks. Reduces the entry barriers.</p>
-                </div>
-                <div class="col-md-4">
-                    <div class="icon-services">
-                        <i class="fa fa-mobile" aria-hidden="true"></i>
-                    </div>
-                    <h4>Interoperability</h4>
-                    <p>Enable cross-chain transactions and other forms of interaction between different decentralized applications, creating a more seamless and integrated ecosystem.</p>
-                </div>
-            </div>
+<section id="services" class="scroll-animation" data-animation="fadeIn" data-animation-delay="0s">
+  <div class="container">
+    <div class="row">
+      <br /><br /><br />
+      <div class="col-md-4">
+        <div class="icon-services">
+          <i class="fa fa-wifi" aria-hidden="true"></i>
         </div>
-    </section>
+        <h4>Versatility</h4>
+        <p>
+          Supports multiple blockchains allows users to access a wide range of
+          decentralized services and applications, regardless of the underlying
+          blockchain technology.
+        </p>
+      </div>
+      <div class="col-md-4">
+        <div class="icon-services">
+          <i class="fa fa-code" aria-hidden="true"></i>
+        </div>
+        <h4>Convenience</h4>
+        <p>
+          Users only need to remember a single domain name or username to access
+          a variety of blockchain-based services across different networks.
+          Reduces the entry barriers.
+        </p>
+      </div>
+      <div class="col-md-4">
+        <div class="icon-services">
+          <i class="fa fa-mobile" aria-hidden="true"></i>
+        </div>
+        <h4>Interoperability</h4>
+        <p>
+          Enable cross-chain transactions and other forms of interaction between
+          different decentralized applications, creating a more seamless and
+          integrated ecosystem.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
 {% endblock %}
