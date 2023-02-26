@@ -1,5 +1,4 @@
 
-# from ddnsapi.routes.home import router as home_router
 from ddnsapi.routes.ping import router as ping_router
 from fastapi import FastAPI, Form, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -10,7 +9,6 @@ from fastapi.templating import Jinja2Templates
 
 def get_application() -> FastAPI:
     app = FastAPI(debug=True, title="DDNS", version="0.1.0")
-    # app.include_router(home_router)
     app.include_router(ping_router)
 
     # Set all CORS enabled origins
