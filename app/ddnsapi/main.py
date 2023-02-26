@@ -11,7 +11,7 @@ from algosdk import encoding
 
 def get_application() -> FastAPI:
     app = FastAPI(debug=True, title="DDNS", version="0.1.0")
-    app.include_router(p)
+    app.include_router(ping.router)
 
     app.mount("/static", StaticFiles(directory="static"), name="static")
     return app
