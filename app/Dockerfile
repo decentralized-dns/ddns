@@ -24,6 +24,8 @@ RUN poetry config virtualenvs.create false && \
 	poetry install --only main --no-interaction --no-ansi --no-root
 
 COPY ./ddnsapi /code/ddnsapi
+COPY ./static /code/static
+COPY ./templates /code/templates
 
 # Configure the command
 CMD ["/code/server.sh"]
