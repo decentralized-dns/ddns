@@ -22,7 +22,7 @@ $ tree -L 1
 .
 ├── LICENSE
 ├── README.md
-├── frontend
-├── resolver
+├── app
+├── dev
 └── smart-contracts
 ```
