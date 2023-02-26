@@ -1,6 +1,6 @@
 # ddns <!-- omit in toc -->
 
-[![resolver](https://github.com/mapshen/ddns/actions/workflows/resolver.yml/badge.svg)](https://github.com/mapshen/ddns/actions/workflows/resolver.yml)
+[![app](https://github.com/mapshen/ddns/actions/workflows/app.yml/badge.svg)](https://github.com/mapshen/ddns/actions/workflows/app.yml)
 [![smart-contracts](https://github.com/mapshen/ddns/actions/workflows/smart-contracts.yml/badge.svg)](https://github.com/mapshen/ddns/actions/workflows/smart-contracts.yml)
 
 DDNS is another name service built on algorand. It is a decentralized DNS service that allows users to register domain names and resolve domain names to IP addresses.
