@@ -2,6 +2,7 @@
 # from ddnsapi.routes.home import router as home_router
 from ddnsapi.routes.ping import router as ping_router
 from fastapi import FastAPI, Form, Request
+from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -15,6 +16,8 @@ def get_application() -> FastAPI:
 
 
 app = get_application()
+# enforce https connection
+app.add_middleware(HTTPSRedirectMiddleware)
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
