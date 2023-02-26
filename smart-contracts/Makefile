@@ -1,8 +1,10 @@
 install:
 	poetry install
 
-lint:
+fmt:
 	poetry run black .
+
+lint: fmt
 	poetry run flake8 . --count --statistics
 
 test: lint
