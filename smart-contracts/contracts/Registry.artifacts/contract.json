@@ -31,7 +31,8 @@
             ],
             "returns": {
                 "type": "void"
-            }
+            },
+            "desc": "Register a new DNS name"
         },
         {
             "name": "renew",
@@ -43,7 +44,8 @@
             ],
             "returns": {
                 "type": "void"
-            }
+            },
+            "desc": "Renew a new DNS name"
         },
         {
             "name": "update",
@@ -55,7 +57,8 @@
             ],
             "returns": {
                 "type": "void"
-            }
+            },
+            "desc": "Update a new DNS name"
         }
     ],
     "networks": {}
