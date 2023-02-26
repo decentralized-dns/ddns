@@ -57,6 +57,7 @@ class Registry(Application):
         valid_year: abi.Uint64,
         current_time: abi.Uint64,
     ):
+        """Register a new DNS name"""
         expiry = current_time.get() + valid_year.get() * Int(86400) * Int(356)
         return Seq(
             self.dns_name.set(name.get()),
@@ -66,11 +67,13 @@ class Registry(Application):
 
     @external
     def renew(self, renew_year: abi.Uint64):
+        """Renew a new DNS name"""
         new_expiry = self.dns_expiry.get() + renew_year.get() * Int(86400) * Int(356)
         return self.dns_expiry.set(new_expiry)
 
     @external
     def update(self, social_account: abi.String):
+        """Update a new DNS name"""
         return self.dns_social.set(social_account.get())
 
 
