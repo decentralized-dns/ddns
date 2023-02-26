@@ -260,13 +260,20 @@ th {
     border: 1px solid #ddd !important;
   }
 }
+
+@font-face {
+  font-family: 'Jura';
+  src: url('../fonts/Jura-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('../fonts/Comfortaa-Regular.ttf') format('truetype');
+}
+
 @font-face {
   font-family: 'Glyphicons Halflings';
-  /*src: url('../fonts/glyphicons-halflings-regular.eot');*/
-  /*src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');*/
   src: url('../fonts/AunchantedxspaceBold-gEE4.ttf') format('truetype');
-  /*src: url('../fonts/Metavers-3zK98.otf');*/
-
 }
 .glyphicon {
   position: relative;

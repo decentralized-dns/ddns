@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>Home</title>
-		<meta name="keywords" content="" />
-		<meta name="description" content="" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<link rel="shortcut icon" type="image/png" href="../static/css/favicon.png">
-		<link rel="stylesheet" href="../static/css/bootstrap.css" type="text/css" />
-		<link rel="stylesheet" href="../static/css/animate.css" type="text/css" />
-		<link rel="stylesheet" href="../static/css/font-awesome.css" type="text/css" />
-		<link rel="stylesheet" href="../static/css/style.css" type="text/css" />
-		<script src="../static/js/html5.js"></script>
+    <head>
+        <meta charset="utf-8" />
+        <title>Home</title>
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link rel="stylesheet" href="{{ url_for('static', path='css/bootstrap.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{ url_for('static', path='css/animate.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{ url_for('static', path='css/font-awesome.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}" type="text/css" />
+<!--      <link rel="shortcut icon" type="image/png" href="{{ url_for('static', path='img/favicon.png') }}" />-->
+        <script src="{{ url_for('static', path='js/html5.js') }}"></script>
     </head>
 
     <body>
-        <div id="page-preloader"><span class="spinner"></span></div>
         <header id="header" class="clear-2">
             <a href="{{ url_for('display_page', page='index') }}" class="logo">DDNS</a>
             <nav class="navbar">
@@ -28,49 +27,50 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav menu">
                         <li><a href="{{ url_for('display_page', page='index') }}">Home</a></li>
-                        <li><a href="{{ url_for('display_page', page='about_us') }}">About Us</a></li>
+                        <!--<li><a href="{{ url_for('display_page', page='about_us') }}">About Us</a></li>-->
                         <li><a href="{{ url_for('display_page', page='search') }}">Domain Search</a></li>
-                        <li><a href="{{ url_for('display_page', page='manage') }}">Domain Management</a></li>
+                        <li><a href="{{ url_for('display_page', page='connect_wallet') }}">Connect Wallet</a></li>
                     </ul>
                 </div>
             </nav>
         </header>
 
-    {% block main_part %}{% endblock %}
-		<footer id="footer">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4">
+        {% block main_part %}{% endblock %}
+
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
                         <a href="{{ url_for('display_page', page='index') }}" class="logo">DDNS</a>
-						<p>Empower your decentralized world with DDNS. <br>
+                        <p>Empower your decentralized world with DDNS. <br>
                             Supports multiple chains and built on Algorand.</p>
-                        <p>Copyright &copy; DDNS Team.</p>
-					</div>
-					<div class="col-md-3">
-						<h6>Links</h6>
-						<ul class="footer-menu">
-							<p><a href="{{ url_for('display_page', page='about_us') }}">About Us</a></p>
+                        <p>&copy; DDNS Team.</p>
+                    </div>
+                    <div class="col-md-3">
+                        <h6>Links</h6>
+                        <ul class="footer-menu">
+                            <!--<p><a href="{{ url_for('display_page', page='about_us') }}">About Us</a></p>-->
                             <p><a href="{{ url_for('display_page', page='search') }}">Search Domain</a></p>
-							<p><a href="{{ url_for('display_page', page='manage') }}">Manage Domain</a></p>
-						</ul>
-					</div>
-					<div class="col-md-4">
-						<h6>Contact</h6>
+                          <p><a href="{{ url_for('display_page', page='connect_wallet') }}">Connect Wallet</a></p>
+                        </ul>
+                    </div>
+
+					          <div class="col-md-4">
+                      <h6>Contact</h6>
                         <p>Email: ddns@gmail.com</p>
                         <p>Phone: +1 (111)111-1111</p>
-					</div>
-				</div>
-			</div>
+					          </div>
+                </div>
+			    </div>
 		</footer>
-		<!-- footer -->
-		<!-- scripts -->
-		<script src="../static/js/lib/jquery.js"></script>
-		<script src="../static/js/lib/bootstrap.min.js"></script>
-		<script src="../static/js/lib/lightbox.min.js"></script>
-		<script src="../static/js/lib/shuffle.js"></script>
-		<script src="../static/js/lib/swiper.min.js"></script>
-		<script src="../static/js/lib/waypoints.min.js"></script>
-		<script src="../static/js/script.js"></script>
+
+    <script src="{{ url_for('static', path='js/lib/jquery.js') }}"></script>
+    <script src="{{ url_for('static', path='js/lib/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', path='js/lib/lightbox.min.js') }}"></script>
+    <script src="{{ url_for('static', path='js/lib/shuffle.js') }}"></script>
+    <script src="{{ url_for('static', path='js/lib/swiper.min.js') }}"></script>
+    <script src="{{ url_for('static', path='js/lib/waypoints.min.js') }}"></script>
+    <script src="{{ url_for('static', path='js/script.js') }}"></script>
 
 	</body>
 </html>
