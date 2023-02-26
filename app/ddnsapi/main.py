@@ -2,23 +2,33 @@
 # from ddnsapi.routes.home import router as home_router
 from ddnsapi.routes.ping import router as ping_router
 from fastapi import FastAPI, Form, Request
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 
 def get_application() -> FastAPI:
-    app = FastAPI()
+    app = FastAPI(debug=True, title="DDNS", version="0.1.0")
     # app.include_router(home_router)
     app.include_router(ping_router)
+
+    # Set all CORS enabled origins
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+
+    app.mount("/static", StaticFiles(directory="static"), name="static")
     return app
 
 
 app = get_application()
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
-
 
 @app.get('/', response_class=HTMLResponse)
 async def home(request: Request):
