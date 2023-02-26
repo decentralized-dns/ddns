@@ -16,7 +16,7 @@ from pyteal import Bytes, Int, Seq, TealType
 
 
 # Create a class, subclassing Application from beaker
-class dot_somedao_registry(Application):
+class Registry(Application):
     dns_owner: Final[AccountStateValue] = AccountStateValue(
         stack_type=TealType.bytes,
         default=Bytes(""),
@@ -88,7 +88,7 @@ print("new account created:\n", account)
 
 app_client = client.ApplicationClient(
     client=sandbox.get_algod_client(),
-    app=dot_somedao_registry(version=8),
+    app=Registry(version=8),
     signer=account.signer,
 )
 # Deploy the app on-chain
@@ -106,7 +106,7 @@ app_client.opt_in()
 # Call and test method
 print("test 1 - Register")
 result = app_client.call(
-    dot_somedao_registry.register,
+    Registry.register,
     name=name,
     owner=account.address,
     valid_year=valid_year,
@@ -117,13 +117,13 @@ print(result.return_value)  # return None or add output in the smart contract fu
 print(f"Current account state: {app_client.get_account_state()}")
 
 print("test 2 - Renew")
-result = app_client.call(dot_somedao_registry.renew, renew_year=renew_year)
+result = app_client.call(Registry.renew, renew_year=renew_year)
 print(result.return_value)
 # Print the current account state
 print(f"Current account state: {app_client.get_account_state()}")
 
 print("test 3 - Update social accnt")
-result = app_client.call(dot_somedao_registry.update, social_account=social_account)
+result = app_client.call(Registry.update, social_account=social_account)
 print(result.return_value)
 # Print the current account state
 print(f"Current account state: {app_client.get_account_state()}")
