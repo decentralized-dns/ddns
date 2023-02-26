@@ -1,13 +1,3 @@
-$(window).on('load', function () {
-
-	'use strict';
-
-	/* Preloader */
-    var $preloader = $('#page-preloader'),
-        $spinner   = $preloader.find('.spinner');
-    $spinner.fadeOut();
-    $preloader.delay(350).fadeOut('slow');
-
 $(document).ready(function() {
 
 	'use strict';
@@ -39,34 +29,3 @@ $(document).ready(function() {
 	    onScrollInit( $('.staggered-animation'), $('.staggered-animation-container') );
 
 });
-
-// const form = document.getElementById("manage-form");
-// const select = document.getElementById("register_select");
-//
-// form.addEventListener("submit", (event) => {
-//   event.preventDefault();
-//
-//   let url;
-//   let formData = new FormData(form);
-//
-//   switch (select.value) {
-//     case "register":
-//       url = "/register";
-//       break;
-//     case "extend":
-//       url = "/extend";
-//       break;
-//     case "renew":
-//       url = "/renew";
-//       break;
-//   }
-//
-//   fetch(url, {
-//     method: "GET",
-//     body: formData,
-//   })
-//     .then((response) => response.text())
-//     .then((text) => {
-//       document.body.innerHTML = text;
-//     });
-// });

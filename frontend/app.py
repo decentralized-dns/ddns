@@ -25,9 +25,13 @@ async def display_page(request: Request, page: str):
 
 
 @app.post("/search", response_class=HTMLResponse)
-async def search(request: Request, domain_name: str = Form("domain_name")):
-
-    request = 1
+async def search(request: Request, domain_name: str = Form("domain_name")): #,
+    # domain_name= request.args['domain_name']
+    # print("-" * 40)
+    # print("domain_name", domain_name)
+    # print("-"*40)
+    # print(request)
+    # print("-" * 40)
     domain_info = 1
     parent = 1
     registrant = 1
@@ -44,6 +48,7 @@ async def search(request: Request, domain_name: str = Form("domain_name")):
     github = 1
     reddit = 1
     telegram = 1
+    address = 1
 
     # Your domain search logic here
     return templates.TemplateResponse("search.html",
@@ -52,7 +57,7 @@ async def search(request: Request, domain_name: str = Form("domain_name")):
                                        "expiration_date": expiration_date, "resolver": resolver, "email": email,
                                        "url": url, "avatar": avatar, "description": description, "notice": notice,
                                        "keywords": keywords, "dicord": dicord, "github": github, "reddit": reddit,
-                                       "telegram": telegram})
+                                       "telegram": telegram, "address":address})
 
 
 
@@ -113,6 +118,27 @@ async def renew_status(request: Request, renew_name: str = Form(...),
 def renew_name(renew_name, renew_duration):
     return "Success"
 
+
+@app.get("/connect-pera")
+async def connect_pera(request: Request):
+    # Request the AlgoSigner API to connect to the Pera wallet
+    payload = {
+        "ledger": "TestNet",
+        "wallet": {
+            "name": "Pera",
+            "type": "WalletConnect",
+            "url": "https://app.pera.finance/",
+            "icon": "https://app.pera.finance/favicon.ico"
+        }
+    }
+    headers = {"Content-Type": "application/json"}
+    response = requests.post("https://api.algosigner.io/v2/wallets", data=json.dumps(payload), headers=headers)
+
+    # Check if the connection was successful
+    if response.status_code == 200:
+        return {"message": "Connected to Pera Wallet"}
+    else:
+        return {"message": "Failed to connect to Pera Wallet"}
 
 
 if __name__ == '__main__':

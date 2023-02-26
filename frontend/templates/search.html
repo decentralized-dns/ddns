@@ -4,9 +4,9 @@
 
 <section class="content-wrapper">
   <div class="container">
-    <article class="col-lg-3 text-left">
+    <article class="col-12 text-left">
       <h1>Domain Search</h1>
-      <form class="search-form" method='GET' action="/search">
+      <form class="search-form" method='POST' action="/search">
         <input type="text" id="domain_name" name="domain_name" placeholder="Search Your Domain...">
         <button class="search-button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
       </form>
@@ -15,7 +15,7 @@
         <table class="table">
           <thead>
             <tr>
-              <th>DOMAIN: {{ domain_name }}</th>
+              <th>DOMAIN: "{{ domain_name }}"</th>
               <th></th>
             </tr>
           </thead>
@@ -48,15 +48,14 @@
           <tbody>
               <tr>
                 <th>ADDRESSES</th>
-                <th></th>
               </tr>
               <tr>
                 <td>Address</td>
+                <td>{{ address }}</td>
               </tr>
           </tbody>
               <tr>
                 <th>TEXT RECORD</th>
-                <th></th>
               </tr>
 
               <tr>
