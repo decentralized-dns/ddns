@@ -1,16 +1,17 @@
 import json
 
 import requests
-from ddnsapi.routes.ping import router as ping_router
+from ddnsapi.routes import ping
 from fastapi import FastAPI, Form, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from algosdk import encoding
 
 
 def get_application() -> FastAPI:
     app = FastAPI(debug=True, title="DDNS", version="0.1.0")
-    app.include_router(ping_router)
+    app.include_router(ping.router)
 
     app.mount("/static", StaticFiles(directory="static"), name="static")
     return app
@@ -33,6 +34,16 @@ async def display_page(request: Request, page: str):
 
 @app.post("/search", response_class=HTMLResponse)
 async def search(request: Request, domain_name: str = Form("domain_name")):  # ,
+    if not encoding.is_valid_address(address):
+        return templates.TemplateResponse(
+            "search.html",
+            {
+                "request": request,
+                "domain_name": domain_name,
+                "domain_info": "Invalid address",
+            },
+        )
+
     # domain_name= request.args['domain_name']
     # print("-" * 40)
     # print("domain_name", domain_name)
