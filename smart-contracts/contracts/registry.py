@@ -1,16 +1,44 @@
 # from . import constants
 from datetime import datetime
-from typing import Final
+from typing import Final, Literal
 
-from beaker import AccountStateValue, sandbox
+from beaker import (AccountStateValue, Approve, LogicSignature,
+                    TemplateVariable, sandbox)
 from beaker.application import Application
 from beaker.client import ApplicationClient
 from beaker.decorators import create, external, opt_in
-from pyteal import Bytes, Int, Seq, TealType, abi
+from beaker.precompile import LSigPrecompile
+from pyteal import (Assert, AtomicTransactionComposer, Bytes,
+                    Ed25519Verify_Bare, Int, Seq, TealType, Txn, abi)
+from utils import sign_msg
 
+Signature = abi.StaticBytes[Literal[64]]
 
 # Create a class, subclassing Application from beaker
 class Registry(Application):
+    class SigChecker(LogicSignature):
+        """Simple program to check an ed25519 signature given a message and signature"""
+        user_addr = TemplateVariable(stack_type=TealType.bytes)
+
+        def evaluate(self):
+            return Seq(
+                # Borrow the msg and sig from the abi call arguments
+                # TODO: this kinda stinks, what do?
+                (msg := abi.String()).decode(Txn.application_args[2]),
+                (sig := abi.make(Signature)).decode(Txn.application_args[3]),
+                # Assert that the sig matches
+                Assert(Ed25519Verify_Bare(msg.get(), sig.get(), self.user_addr)),
+                Int(1),
+            )
+
+    sig_checker = LSigPrecompile(SigChecker())
+    @external
+    def check(self, signer_address: abi.Address):
+        return Assert(
+            Txn.sender() == self.sig_checker.logic.template_hash(signer_address.get())
+        )
+
+
     dns_owner: Final[AccountStateValue] = AccountStateValue(
         stack_type=TealType.bytes,
         default=Bytes(""),
@@ -107,6 +135,13 @@ def demo():
     )
 
     app_client.opt_in()
+
+    # Get the signer for the lsig from its populated precompile
+    lsig_signer = app_client.sig_checker.template_signer(decode_address(acct.address))
+    # Prepare a new client so it can sign calls
+    lsig_client = app_client.prepare(signer=lsig_signer)
+
+    atc = AtomicTransactionComposer()
 
     # Call and test method
     print("test 1 - Register")
