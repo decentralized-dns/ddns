@@ -46,3 +46,14 @@ jobs:
 
       # - name: Test with `pytest`
       #   run: poetry run pytest
+
+      - name: trigger hurl tests
+        if: ${{ github.ref == 'refs/heads/main' && success() }}
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: hurl
+      - name: trigger flyctl deployment
+        if: ${{ github.ref == 'refs/heads/main' && success() }}
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: flyctl

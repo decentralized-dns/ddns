@@ -1,12 +1,7 @@
 name: flyctl
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - .github/workflows/flyctl.yml
-      - app/**/*
+  workflow_dispatch:
 
 defaults:
   run:
